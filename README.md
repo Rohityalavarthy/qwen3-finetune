@@ -299,14 +299,6 @@ model, tokenizer = FastLanguageModel.from_pretrained(
 FastLanguageModel.for_inference(model)
 ```
 
-### Model Export Options
-```python
-# Export to different formats
-model.save_pretrained("qwen25-math-reasoning")           # HuggingFace
-model.save_pretrained_gguf("model.gguf", tokenizer)     # GGUF for llama.cpp  
-model.save_pretrained_merged("merged_model", tokenizer) # Full model merge
-```
-
 ## 🤝 Contributing
 
 We welcome contributions! Areas of interest:
@@ -315,25 +307,7 @@ We welcome contributions! Areas of interest:
 - **Evaluation Metrics**: Comprehensive benchmarking
 - **Hardware Optimization**: Multi-GPU scaling
 
-### Development Setup
-```bash
-git clone https://github.com/yourusername/qwen25-mathematical-reasoning
-cd qwen25-mathematical-reasoning
-pip install -e .
-pre-commit install
-```
 
-## 📄 Citation
-
-```bibtex
-@misc{qwen25-mathematical-reasoning-2024,
-  title={Parameter-Efficient Fine-Tuning of Qwen3-4B for Mathematical Reasoning},
-  author={Your Name},
-  year={2024},
-  howpublished={\url{https://github.com/yourusername/qwen25-mathematical-reasoning}},
-  note={Advanced LoRA-based fine-tuning with hybrid dataset strategy}
-}
-```
 
 ## 📊 Detailed Training Metrics
 
