@@ -1,15 +1,10 @@
-# Qwen2.5-4B Mathematical Reasoning Fine-Tuning
+# Qwen3-4B Mathematical Reasoning Fine-Tuning
 
-[![Python 3.12+](https://img.shields.io/badge/python-3.12+-blue.svg)](https://www.python.org/downloads/)
-[![PyTorch](https://img.shields.io/badge/PyTorch-2.8.0-red.svg)](https://pytorch.org/)
-[![Unsloth](https://img.shields.io/badge/Unsloth-2025.9.11-green.svg)](https://github.com/unslothai/unsloth)
-[![CUDA](https://img.shields.io/badge/CUDA-12.6-nvidia.svg)](https://developer.nvidia.com/cuda-toolkit)
-
-> **Advanced Parameter-Efficient Fine-Tuning (PEFT) implementation for Qwen2.5-4B with hybrid mathematical reasoning capabilities using LoRA adapters and 4-bit quantization optimization.**
+> **Advanced Parameter-Efficient Fine-Tuning (PEFT) implementation for Qwen3-4B with hybrid mathematical reasoning capabilities using LoRA adapters and 4-bit quantization optimization.**
 
 ## 🚀 Overview
 
-This project implements a sophisticated fine-tuning pipeline that transforms Alibaba's Qwen2.5-4B into a mathematically-enhanced reasoning model. By leveraging **Parameter-Efficient Fine-Tuning (PEFT)** with **Low-Rank Adaptation (LoRA)** and **4-bit quantization**, we achieve optimal performance while maintaining memory efficiency for consumer hardware.
+This project implements a sophisticated fine-tuning pipeline that transforms Alibaba's Qwen3-4B into a mathematically-enhanced reasoning model. By leveraging **Parameter-Efficient Fine-Tuning (PEFT)** with **Low-Rank Adaptation (LoRA)** and **4-bit quantization**, we achieve optimal performance while maintaining memory efficiency for consumer hardware.
 
 ### Key Innovation: **Hybrid Dataset Strategy**
 - **75% Mathematical Reasoning**: 19,252 samples from `unsloth/OpenMath-Reasoning-mini`
@@ -20,7 +15,7 @@ This project implements a sophisticated fine-tuning pipeline that transforms Ali
 
 ### Model Configuration
 ```python
-Base Model: unsloth/Qwen2.5-4B-unsloth-bnb-4bit
+Base Model: unsloth/Qwen3-4B-unsloth-bnb-4bit
 Parameters: 4.09B total → 66M trainable (1.62% trained)
 Memory Footprint: ~3.55GB with 4-bit quantization
 Target Modules: [q_proj, k_proj, v_proj, o_proj, gate_proj, up_proj, down_proj]
@@ -85,7 +80,7 @@ enable_thinking = True   # Step-by-step mathematical reasoning
 
 ### 2. **Intelligent Dataset Processing**
 - **Format Standardization**: Automatic ShareGPT format conversion
-- **Template Application**: Qwen2.5 chat template with role-based structure
+- **Template Application**: Qwen3 chat template with role-based structure
 - **Balanced Sampling**: Precision ratio maintenance (75:25)
 - **Tokenization**: Efficient sequence packing (max_seq_length=2048)
 
@@ -138,7 +133,7 @@ import torch
 
 # 1. Model Initialization
 model, tokenizer = FastLanguageModel.from_pretrained(
-    model_name="unsloth/Qwen2.5-4B",
+    model_name="unsloth/Qwen3-4B",
     max_seq_length=2048,
     load_in_4bit=True,
     dtype=None,  # Auto-detect optimal dtype
@@ -273,7 +268,7 @@ test_conversations = [
 ```
 qwen25-mathematical-reasoning/
 ├── notebooks/
-│   └── Qwen2.5_4B_Finetune.ipynb     # Main training notebook
+│   └── Qwen3_4B_Finetune.ipynb     # Main training notebook
 ├── models/
 │   └── lora_model/                    # Saved LoRA adapters
 ├── datasets/
@@ -332,7 +327,7 @@ pre-commit install
 
 ```bibtex
 @misc{qwen25-mathematical-reasoning-2024,
-  title={Parameter-Efficient Fine-Tuning of Qwen2.5-4B for Mathematical Reasoning},
+  title={Parameter-Efficient Fine-Tuning of Qwen3-4B for Mathematical Reasoning},
   author={Your Name},
   year={2024},
   howpublished={\url{https://github.com/yourusername/qwen25-mathematical-reasoning}},
@@ -359,7 +354,7 @@ pre-commit install
 
 ## 🏆 Acknowledgments
 
-- **Alibaba Cloud**: Qwen2.5 foundation model
+- **Alibaba Cloud**: Qwen3 foundation model
 - **Unsloth Team**: 2x speed optimization framework  
 - **HuggingFace**: Transformers and datasets ecosystem
 - **Microsoft**: DeepSpeed integration capabilities
